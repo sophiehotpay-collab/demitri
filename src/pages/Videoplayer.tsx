@@ -514,9 +514,9 @@ I'm sending the payment from my wallet. Please confirm the transaction and provi
       const randomProductName = getRandomProductName();
       setPurchasedProductName(randomProductName);
       
-      // Build success and cancel URLs
-      const successUrl = `${window.location.origin}/payment-success?video_id=${id}&session_id={CHECKOUT_SESSION_ID}&payment_method=stripe`;
-      const cancelUrl = `${window.location.origin}/video/${id}?payment_canceled=true`;
+      // Build success and cancel URLs (with # for HashRouter)
+      const successUrl = `${window.location.origin}/#/payment-success?video_id=${id}&session_id={CHECKOUT_SESSION_ID}&payment_method=stripe`;
+      const cancelUrl = `${window.location.origin}/#/video/${id}?payment_canceled=true`;
       
       // Create checkout session
       const sessionId = await StripeService.createCheckoutSession(
